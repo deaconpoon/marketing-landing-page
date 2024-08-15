@@ -30,12 +30,12 @@ export default function HomePage() {
   };
 
   return (
-    <div className="container mx-auto p-4 flex flex-col md:flex-row">
-      <div className="w-full md:w-1/2 pr-0 md:pr-4 mb-4 md:mb-0">
+    <div className="flex flex-col lg:flex-row h-screen">
+      <div className="w-full lg:w-1/2 p-4 overflow-auto">
         <Editor value={jsonInput} onChange={handleInputChange} />
         {error && <div className="text-error mt-2">{error}</div>}
       </div>
-      <div className="w-full md:w-1/2 pl-0 md:pl-4">
+      <div className="w-full lg:w-1/2 p-4 overflow-auto bg-base-200">
         <MarketingLandingPage sections={parsedSections} />
       </div>
     </div>
