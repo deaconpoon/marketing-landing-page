@@ -7,6 +7,13 @@ const ImageTextSection: React.FC<ImageTextSectionType> = ({
   title,
   leftToRight = true,
 }) => {
+  if (!imageURI) {
+    throw new Error("ImageTextSection: imageURI is required");
+  }
+  if (!text) {
+    throw new Error("ImageTextSection: text is required");
+  }
+
   return (
     <div
       className={`flex flex-col ${
