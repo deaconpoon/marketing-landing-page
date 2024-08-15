@@ -2,6 +2,10 @@ import React from "react";
 import { HeroSection as HeroSectionType } from "@/types";
 
 const HeroSection: React.FC<HeroSectionType> = ({ imageURI }) => {
+  if (!imageURI) {
+    throw new Error("HeroSection: imageURI is required");
+  }
+
   return (
     <div
       className="hero h-full"
