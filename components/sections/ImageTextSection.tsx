@@ -7,11 +7,19 @@ const ImageTextSection: React.FC<ImageTextSectionType> = ({
   title,
   leftToRight = true,
 }) => {
-  if (!imageURI) {
-    throw new Error("ImageTextSection: imageURI is required");
-  }
-  if (!text) {
-    throw new Error("ImageTextSection: text is required");
+  if (!imageURI || !text) {
+    return (
+      <div className="h-full flex items-center justify-center">
+        <div className="bg-error text-error-content p-4 rounded-lg shadow-lg">
+          <h3 className="text-lg font-bold mb-2">Image-Text Section Error</h3>
+          <p>
+            {!imageURI && "ImageTextSection: imageURI is required"}
+            {!imageURI && !text && <br />}
+            {!text && "ImageTextSection: text is required"}
+          </p>
+        </div>
+      </div>
+    );
   }
 
   return (
