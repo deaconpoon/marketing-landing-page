@@ -8,7 +8,7 @@ interface EditorProps {
 const Editor: React.FC<EditorProps> = ({ value, onChange }) => {
   return (
     <textarea
-      className="textarea textarea-bordered w-full h-64"
+      className="textarea textarea-bordered w-full h-full min-h-[300px]"
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder="Enter JSON here..."

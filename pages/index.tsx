@@ -31,8 +31,10 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col lg:flex-row h-screen">
-      <div className="w-full lg:w-1/2 p-4 overflow-auto">
-        <Editor value={jsonInput} onChange={handleInputChange} />
+      <div className="w-full lg:w-1/2 p-4 flex flex-col">
+        <div className="flex-grow">
+          <Editor value={jsonInput} onChange={handleInputChange} />
+        </div>
         {error && <div className="text-error mt-2">{error}</div>}
       </div>
       <div className="w-full lg:w-1/2 p-4 overflow-auto bg-base-200">
