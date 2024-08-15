@@ -9,9 +9,9 @@ const ImageTextSection: React.FC<ImageTextSectionType> = ({
 }) => {
   if (!imageURI || !text) {
     return (
-      <div className="h-full flex items-center justify-center">
+      <div className="h-full flex items-center justify-center p-4">
         <div className="bg-error text-error-content p-4 rounded-lg shadow-lg">
-          <h3 className="text-lg font-bold mb-2">Image-Text Section Error</h3>
+          <h3 className="text-lg font-bold mb-4">Image-Text Section Error</h3>
           <p>
             {!imageURI && "ImageTextSection: imageURI is required"}
             {!imageURI && !text && <br />}
@@ -26,7 +26,7 @@ const ImageTextSection: React.FC<ImageTextSectionType> = ({
     <div
       className={`flex flex-col ${
         leftToRight ? "md:flex-row" : "md:flex-row-reverse"
-      } h-full`}
+      } h-full rounded-lg overflow-hidden`}
     >
       <div className="w-full md:w-1/2 h-full">
         <img
@@ -35,7 +35,7 @@ const ImageTextSection: React.FC<ImageTextSectionType> = ({
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="w-full md:w-1/2 p-4 flex flex-col justify-center">
+      <div className="w-full md:w-1/2 p-4 flex flex-col justify-center bg-base-200">
         {title && <h2 className="text-2xl font-bold mb-4">{title}</h2>}
         <p>{text}</p>
       </div>

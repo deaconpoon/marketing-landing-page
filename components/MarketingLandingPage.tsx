@@ -33,12 +33,12 @@ const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
   };
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full p-8">
       {sections.map((section, index) => (
         <div
           key={index}
           style={{ height: sectionHeight }}
-          className="overflow-auto"
+          className="overflow-auto mb-8 last:mb-0"
         >
           {renderSection(section, index)}
         </div>
