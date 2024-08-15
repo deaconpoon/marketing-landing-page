@@ -22,13 +22,23 @@ const DataSection: React.FC<DataSectionType> = ({ url }) => {
     fetchData();
   }, [url]);
 
-  if (loading) return <div className="loading loading-lg">Loading...</div>;
-  if (error) return <div className="text-error">{error}</div>;
+  if (loading)
+    return (
+      <div className="h-full flex items-center justify-center">
+        <div className="loading loading-lg">Loading...</div>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="h-full flex items-center justify-center text-error">
+        {error}
+      </div>
+    );
 
   return (
-    <div className="my-8">
+    <div className="h-full flex flex-col p-4">
       <h2 className="text-2xl font-bold mb-4">Data Section</h2>
-      <pre className="bg-base-200 p-4 rounded-lg overflow-x-auto">
+      <pre className="bg-base-200 p-4 rounded-lg overflow-auto flex-grow">
         <code>{data}</code>
       </pre>
       <button

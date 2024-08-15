@@ -11,19 +11,34 @@ interface MarketingLandingPageProps {
 const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
   sections,
 }) => {
+  const sectionHeight =
+    sections.length > 0 ? `${100 / sections.length}vh` : "auto";
+
   return (
-    <div>
+    <div className="flex flex-col h-full">
       {sections.map((section, index) => {
-        switch (section.type) {
-          case "hero":
-            return <HeroSection key={index} {...section} />;
-          case "image-text":
-            return <ImageTextSection key={index} {...section} />;
-          case "data":
-            return <DataSection key={index} {...section} />;
-          default:
-            return null;
-        }
+        const SectionComponent = (() => {
+          switch (section.type) {
+            case "hero":
+              return HeroSection;
+            case "image-text":
+              return ImageTextSection;
+            case "data":
+              return DataSection;
+            default:
+              return null;
+          }
+        })();
+
+        return SectionComponent ? (
+          <div
+            key={index}
+            style={{ height: sectionHeight }}
+            className="overflow-auto"
+          >
+            <SectionComponent {...section} />
+          </div>
+        ) : null;
       })}
     </div>
   );

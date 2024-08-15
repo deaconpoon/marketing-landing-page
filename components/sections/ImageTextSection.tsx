@@ -11,12 +11,16 @@ const ImageTextSection: React.FC<ImageTextSectionType> = ({
     <div
       className={`flex flex-col ${
         leftToRight ? "md:flex-row" : "md:flex-row-reverse"
-      } my-8`}
+      } h-full`}
     >
-      <div className="w-full md:w-1/2">
-        <img src={imageURI} alt={title || "Image"} className="w-full h-auto" />
+      <div className="w-full md:w-1/2 h-full">
+        <img
+          src={imageURI}
+          alt={title || "Image"}
+          className="w-full h-full object-cover"
+        />
       </div>
-      <div className="w-full md:w-1/2 p-4">
+      <div className="w-full md:w-1/2 p-4 flex flex-col justify-center">
         {title && <h2 className="text-2xl font-bold mb-4">{title}</h2>}
         <p>{text}</p>
       </div>

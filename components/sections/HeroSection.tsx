@@ -4,7 +4,7 @@ import { HeroSection as HeroSectionType } from "@/types";
 const HeroSection: React.FC<HeroSectionType> = ({ imageURI }) => {
   return (
     <div
-      className="hero min-h-screen"
+      className="hero h-full"
       style={{ backgroundImage: `url(${imageURI})` }}
     >
       <div className="hero-overlay bg-opacity-60"></div>
